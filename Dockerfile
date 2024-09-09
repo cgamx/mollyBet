@@ -1,8 +1,8 @@
 # Use a lightweight Alpine base image
 FROM alpine:3.18
 
-# Install necessary packages: g++, cmake, git
-RUN apk add --no-cache gcc g++ cmake git zip pkgconfig
+# Install necessary packages
+RUN apk add --no-cache gcc g++ cmake git zip pkgconfig make bash curl
 
 # Set the working directory inside the container
 WORKDIR /app

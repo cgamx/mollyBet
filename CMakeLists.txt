@@ -3,7 +3,16 @@ project(MollyBet)
 
 # Policies
 #--------------------------------------
-cmake_policy(SET CMP0167 NEW)
+#cmake_policy(SET CMP0167 NEW)
+
+# Fix some versions
+#--------------------------------------
+message(STATUS "CMAKE_OSX_ARCHITECTURES = ${CMAKE_OSX_ARCHITECTURES}")
+message(STATUS "CMAKE_SYSTEM_PROCESSOR = ${CMAKE_SYSTEM_PROCESSOR}")
+
+if(NOT CMAKE_OSX_ARCHITECTURES AND CMAKE_SYSTEM_PROCESSOR)
+    set(CMAKE_OSX_ARCHITECTURES ${CMAKE_SYSTEM_PROCESSOR})
+endif()
 
 # C++ version
 #--------------------------------------
