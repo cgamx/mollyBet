@@ -1,0 +1,10 @@
+{
+    "name": "molly-bet",
+    "version-string": "1.0.0",
+    "dependencies": [
+      "fmt",
+      "nlohmann-json",
+      "openssl",
+      "boost-beast"
+    ]
+}
