@@ -75,6 +75,9 @@ cmake --build .
 
 All the dependencies declared in **vcpkg.json** will be downloaded and compiled when we write: ```cmake ..```
 
+**Note**: Building depencies is very slow specially for boost and openssl.
+
+
 The executable MollyBet will be placed in the ../bin directory.
 
 ## Run the demo
@@ -86,6 +89,16 @@ The executable MollyBet will be placed in the ../bin directory.
 ## Dockerfile
 
 I don't think a Dockerfile is needed to build this project but I have provide one.
+
+Follow these steps to build and run it.
+
+```sh
+sudo docker build --no-cache -t mollybet .
+
+sudo docker run -it mollybet
+
+./MollyBet api.mollybet.com 443
+```
 
 ## Notes
 
