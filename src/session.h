@@ -34,25 +34,26 @@ public:
     // Resolver and socket require an io_context
     explicit Session(net::io_context &ioc, ssl::context &ctx);
 
+    // Set credentials before calling run
+    void setCredentials(const std::string &user, const std::string &password) { mUserName = user, mPassword = password;  }
+
     // Start the asynchronous operation
     bool run(const std::string &host, const std::string &port, UserParserFunc userParser);
 
-    void set_credentials(const std::string &user, const std::string &password) { mUserName = user, mPassword = password;  }
-
 protected:
-    void on_resolve(beast::error_code ec, tcp::resolver::results_type results);
+    void onResolve(beast::error_code ec, tcp::resolver::results_type results);
 
-    void on_connect(beast::error_code ec, tcp::resolver::results_type::endpoint_type ep);
+    void onConnect(beast::error_code ec, tcp::resolver::results_type::endpoint_type ep);
 
-    void on_ssl_handshake(beast::error_code ec);
+    void onSSLHandshake(beast::error_code ec);
 
-    void on_wss_handshake(beast::error_code ec);
+    void onWSSHandshake(beast::error_code ec);
 
-    void on_write_post(beast::error_code ec, std::size_t bytes_transferred);
+    void onWritePost(beast::error_code ec, std::size_t bytes_transferred);
     
-    void on_read_token(beast::error_code ec, std::size_t bytes_transferred);
+    void onReadToken(beast::error_code ec, std::size_t bytes_transferred);
 
-    void on_read(beast::error_code ec, std::size_t bytes_transferred);
+    void onReadData(beast::error_code ec, std::size_t bytes_transferred);
 
-    void on_close(beast::error_code ec);
+    void onClose(beast::error_code ec);
 };

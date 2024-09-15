@@ -5,7 +5,7 @@
 This is an open-ended question that we encourage you to answer using the libraries and style that you feel most comfortable with. We only ask that you use modern C++ and show off your best code.
 
 The requirements are as follows:
-  1. Make an HTTP request to login to [Molly API](https://api.mollybet.com/docs/). You can use the test credentials username=devinterview password=OwAb6wrocirEv to get back a session token.
+  1. Make an HTTP request to login to [Molly API](https://api.mollybet.com/docs/). You can use the test credentials username=XXXXXX password=YYYYYY to get back a session token.
   2. Connect a websocket to the Molly API stream.
   3. Read messages up until the "sync" message.
   4. Disconnect the websocket, and print out the distinct "competition_name" values seen in "event" messages your received.
@@ -59,9 +59,25 @@ vcpkg project as a git submodule.
 
 ## Building the code
 
+### Prerequisites
+
+- Make sure you have a compatible version of CMake installed (at least 3.12).
+- A compatible version of the C++17 compiler is required.
+- Git must be installed to clone the repository and its submodules.
+- Since we are using vcpkg, you may need to install some dependencies on your system.
+  Although vcpkg is able to install some of them when needed, it's not a bad idea to have them available on the path.
+
+  - make 
+  - tar zip unzip gzip 
+  - pkg-config 
+  - curl 
+  - ninja build system
+
+### Building the code
+
 ```sh
 # Git
-git clone xxx
+git clone https://github.com/cgamx/mollyBet.git
 git submodule update --init
 
 # Get dependencies and generate project
@@ -75,7 +91,7 @@ cmake --build .
 
 All the dependencies declared in **vcpkg.json** will be downloaded and compiled when we write: ```cmake ..```
 
-**Note**: Building depencies is very slow specially for boost and openssl.
+**Note**: Building dependencies is very slow, especially for Boost and OpenSSL.
 
 
 The executable MollyBet will be placed in the ../bin directory.
@@ -88,7 +104,8 @@ The executable MollyBet will be placed in the ../bin directory.
 
 ## Dockerfile
 
-I don't think a Dockerfile is needed to build this project but I have provide one.
+Although the project can be built without Docker, I have included a Dockerfile to make it easier to reproduce the build and run environment.
+The Dockerfile installs the necessary dependencies and compiles the code.
 
 Follow these steps to build and run it.
 

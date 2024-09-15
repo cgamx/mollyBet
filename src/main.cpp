@@ -34,7 +34,7 @@ getValue(const json &j, std::string &value, const std::string &key = "none") {
         Logger::exception("Exception error parsing key '{}': {}", key, e.what());
     }
     catch (...) {
-        Logger::exception("Exception error parsing key '{}'", key);
+        Logger::exception("Unknown exception occurred parsing key '{}'", key);
     }
 
     return false;
@@ -112,7 +112,7 @@ Example:
 
     // Launch the asynchronous operation
     auto session = std::make_shared<Session>(ioc, ctx);
-    session->set_credentials("devinterview", "OwAb6wrocirEv");
+    session->setCredentials("devinterview", "OwAb6wrocirEv");
     bool result = session->run(host, port, [&](const std::string_view &received) {
         json data = json::parse(received);
 
