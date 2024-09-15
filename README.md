@@ -1,5 +1,19 @@
 # MollyBet API test
 
+**Index:**
+
+- [Instructions for the test](#instructions-for-the-test)
+- [Introduction to the Code](#introduction-to-the-code)
+- [Current Dependencies](#current-dependencies)
+- [Supported Platforms and Compilers](#supported-platforms-and-compilers)
+- [Code Structure](#code-structure)
+- [Building the code](#building-the-code)
+  - [Prerequisites](#prerequisites)
+  - [Building the code](#building-the-code-1)
+- [Run the demo](#run-the-demo)
+- [Dockerfile](#dockerfile)
+- [Notes](#notes)
+
 ## Instructions for the test
 
 This is an open-ended question that we encourage you to answer using the libraries and style that you feel most comfortable with. We only ask that you use modern C++ and show off your best code.
@@ -67,10 +81,10 @@ vcpkg project as a git submodule.
 - Since we are using vcpkg, you may need to install some dependencies on your system.
   Although vcpkg is able to install some of them when needed, it's not a bad idea to have them available on the path.
 
-  - make 
-  - tar zip unzip gzip 
-  - pkg-config 
-  - curl 
+  - make
+  - tar zip unzip gzip
+  - pkg-config
+  - curl
   - ninja build system
 
 ### Building the code
